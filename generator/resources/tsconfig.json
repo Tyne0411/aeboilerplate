@@ -13,7 +13,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "strict": false,
+<<<<<<< HEAD
+    "allowSyntheticDefaultImports": false,
+    "noImplicitAny": false
+=======
     "baseUrl": "./src"
+>>>>>>> refs/rewritten/master-15
   },
   "exclude": ["node_modules", "build", "scripts", "webpack", "__mocks__"]
 }
