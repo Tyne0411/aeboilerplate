@@ -4,8 +4,7 @@ import { clientAppPath } from './core/config'
 import { logStepHeaderMessage } from './core/log-step-header-message'
 
 export const changeClientPackageFile = () => {
-  logStepHeaderMessage('Update client package configuration', 10)
-  const packagePath = process.env.NODE_ENV !== 'ci' ? `${clientAppPath}/package.json` : './package.json'
+  const packagePath = `${clientAppPath}/package.json`
   const packageContent = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
 
   packageContent.scripts['test-coverage'] = 'npm run test -- --coverage && cat ./coverage/lcov.info | coveralls'
