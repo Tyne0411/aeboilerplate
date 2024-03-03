@@ -5,8 +5,7 @@ import { clientAppPath } from './core/config'
 
 export const installDependencies = () => {
   return new Promise((resolve) => {
-    logStepHeaderMessage('Installing client dependencies', 8)
-    shell.exec(`npm run client-npm-i`)
+    shell.exec(`npm run client-npm -- i`)
 
     const dependencies = [
       'redux',
@@ -40,8 +39,13 @@ export const installDependencies = () => {
       '@types/store',
     ]
 
+<<<<<<< HEAD
     shell.exec(`npm run client-npm-i -- -S ${dependencies.join(' ')}`)
     shell.exec(`npm run client-npm-i -- -D --unsafe-perm ${devDependencies.join(' ')}`)
+=======
+    shell.exec(`npm run client-npm -- i -S ${dependencies.join(' ')}`)
+    shell.exec(`npm run client-npm -- i -D --unsafe-perm ${devDependencies.join(' ')}`)
+>>>>>>> f992f09 (Test client npm and running test coverage from doc)
 
     shell.cd(`${clientAppPath}`)
     shell.exec(`npm i node-sass -D`)
