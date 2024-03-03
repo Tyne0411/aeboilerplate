@@ -1,11 +1,14 @@
 import * as fs from 'fs'
 
+import shell from 'shelljs'
+
 import { clientAppPath } from './config'
 import { logStepHeaderMessage } from './log-step-header-message'
 
 export const deleteUnnecessaryFiles = () => {
-  logStepHeaderMessage('Removing unnecessary files', 9)
-  const srcPath = process.env.NODE_ENV !== 'ci' ? `${clientAppPath}/src` : './src'
+  console.log('LS > \n\n', shell.ls())
+
+  const srcPath = `${clientAppPath}/src`
   const files = fs.readdirSync(srcPath)
   const isDirectory = (path) => fs.lstatSync(path).isDirectory()
 
